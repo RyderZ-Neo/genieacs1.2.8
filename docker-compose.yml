@@ -3,8 +3,17 @@
 version: "3"
 services:
 #Dockerfile here: https://github.com/docker-library/mongo/blob/6932ac255d29759af9a74c6931faeb02de0fe53e/4.0/Dockerfile
+    thiea_test_dev:
+        image: theiaide/theia:latest
+        volumes:
+             - .:/home/project
+        ports:
+              - "5500:3000"
+        user: node
+        networks:
+              - genieacs_network  
     mongo:
-        image: mongo:4.0 
+        image: mongo:4.0
         restart: always
         container_name: "mongo"
         environment:
